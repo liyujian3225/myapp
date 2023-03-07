@@ -17,42 +17,9 @@ export default [
   },
   {
     path: '/home',
+    name: 'home',
     layout: false,
-    routes: [
-      {
-        name: 'home',
-        path: '/home',
-        component: './Home',
-      },
-    ],
-  },
-  {
-    path: '/user',
-    layout: false,
-    routes: [
-      {
-        name: 'login',
-        path: '/user/login',
-        component: './User/Login',
-      },
-    ],
-  },
-  {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    routes: [
-      {
-        path: '/admin',
-        redirect: '/admin/sub-page',
-      },
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        component: './Admin',
-      },
-    ],
+    component: './Home',
   },
   {
     path: '*',
