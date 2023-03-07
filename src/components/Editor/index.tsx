@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Editor, Toolbar } from '@wangeditor/editor-for-react'
 import { IDomEditor, IEditorConfig, IToolbarConfig, SlateNode } from '@wangeditor/editor'
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
+import style from "./index.less"
 
 function MyEditor(props: any) {
   // editor 实例
@@ -18,7 +19,11 @@ function MyEditor(props: any) {
   }, [])
 
   // 工具栏配置
-  const toolbarConfig: Partial<IToolbarConfig> = { }  // TS 语法
+  const toolbarConfig: Partial<IToolbarConfig> = {
+    toolbarKeys: [
+      'bold', 'italic',
+    ]
+  }
 
   // 编辑器配置
   const editorConfig: Partial<IEditorConfig> = {    // TS 语法
@@ -50,16 +55,17 @@ function MyEditor(props: any) {
 
   return (
     <>
-      <div style={{ border: '1px solid #ccc', zIndex: 100}}>
+      <div className={style.editorContainer}>
         <Editor
+          className={style.editorDom}
           defaultConfig={editorConfig}
           value={html}
           onCreated={setEditor}
           onChange={onChange}
           mode="default"
-          style={{ height: '500px', overflowY: 'hidden' }}
         />
         <Toolbar
+          className={style.toolBarDom}
           editor={editor}
           defaultConfig={toolbarConfig}
           mode="default"
