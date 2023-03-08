@@ -4,15 +4,15 @@
 import React from 'react';
 import { ConfigProvider } from 'antd';
 
-import moment from '/Users/liyujian/Documents/mySpace/myapp/node_modules/dayjs';
-import '/Users/liyujian/Documents/mySpace/myapp/node_modules/dayjs/locale/bn-bd';
-import '/Users/liyujian/Documents/mySpace/myapp/node_modules/dayjs/locale/en';
-import '/Users/liyujian/Documents/mySpace/myapp/node_modules/dayjs/locale/fa';
-import '/Users/liyujian/Documents/mySpace/myapp/node_modules/dayjs/locale/id';
-import '/Users/liyujian/Documents/mySpace/myapp/node_modules/dayjs/locale/ja';
-import '/Users/liyujian/Documents/mySpace/myapp/node_modules/dayjs/locale/pt-br';
-import '/Users/liyujian/Documents/mySpace/myapp/node_modules/dayjs/locale/zh-cn';
-import '/Users/liyujian/Documents/mySpace/myapp/node_modules/dayjs/locale/zh-tw';
+import moment from 'D:/Documents/mySpace/myapp/node_modules/dayjs';
+import 'D:/Documents/mySpace/myapp/node_modules/dayjs/locale/bn-bd';
+import 'D:/Documents/mySpace/myapp/node_modules/dayjs/locale/en';
+import 'D:/Documents/mySpace/myapp/node_modules/dayjs/locale/fa';
+import 'D:/Documents/mySpace/myapp/node_modules/dayjs/locale/id';
+import 'D:/Documents/mySpace/myapp/node_modules/dayjs/locale/ja';
+import 'D:/Documents/mySpace/myapp/node_modules/dayjs/locale/pt-br';
+import 'D:/Documents/mySpace/myapp/node_modules/dayjs/locale/zh-cn';
+import 'D:/Documents/mySpace/myapp/node_modules/dayjs/locale/zh-tw';
 import { RawIntlProvider, getLocale, getDirection , setIntl, getIntl, localeInfo, event, LANG_CHANGE_EVENT } from './localeExports';
 
 

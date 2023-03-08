@@ -1,34 +1,48 @@
-import React, { useState, useEffect, useRef } from 'react'
-import MyEditor from "@/components/Editor";
-import style from "./index.less"
+import MyEditor from '@/components/Editor';
+import React, { useEffect, useRef, useState } from 'react';
+import style from './index.less';
 
-function App(props: any) {
+function App() {
   const [catalog, setCatalog] = useState([]);
-  const refContainer = useRef(null);
+  const refCatalog = useRef(null);
+  const refEditor = useRef(null);
+
+  const onClickCatalog = (event: {
+    target: { tagName: string; id: any };
+    preventDefault: () => void;
+  }) => {
+    if (event.target.tagName !== 'LI') return;
+    event.preventDefault();
+    const id = event.target.id;
+    refEditor.current.onHandleCatalog(id);
+  };
 
   useEffect(() => {
-    console.log(refContainer)
-    refContainer.current.addEventListener("mousedown", event => {
-      if (event.target.tagName !== 'LI') return
-      event.preventDefault()
-      const id = event.target.id
-      console.log(id)
-      // editor.scrollToElem(id) // 滚动到标题
-    }, [])
-  });
+    if (!refCatalog.current) return;
+    refCatalog.current.onclick = function (event) {
+      onClickCatalog(event);
+    };
+  }, []);
 
   return (
     <>
       <div className={style.leftArea}>
-        <ul className={style.headerContainer} ref={refContainer}>
-          {catalog.map(item => item)}
+        <ul className={style.headerContainer} ref={refCatalog}>
+          {catalog.map(({ id, type, text }) => (
+            <li id={id} type={type} key={id}>
+              {text}
+            </li>
+          ))}
         </ul>
       </div>
       <div className={style.rightArea}>
-        <MyEditor onHandleChange={(catalog: React.SetStateAction<never[]>) => setCatalog(catalog)}/>
+        <MyEditor
+          ref={refEditor}
+          onHandleChange={(catalog: React.SetStateAction<never[]>) => setCatalog(catalog)}
+        />
       </div>
     </>
-  )
+  );
 }
 
 export default App;

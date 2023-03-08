@@ -19,7 +19,7 @@
         "src/.umi/*"
       ],
       "@umijs/max": [
-        "/Users/liyujian/Documents/mySpace/myapp/node_modules/umi"
+        "D:\\Documents\\mySpace\\myapp\\node_modules\\umi"
       ],
       "@umijs/max/typings": [
         "src/.umi/typings"
